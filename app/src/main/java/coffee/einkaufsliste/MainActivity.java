@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Lukas, läuft bei dir !!!
         // Na auf jeden !!!
+        // Na dann schreib auch mal besseren Code
     }
 }
 
