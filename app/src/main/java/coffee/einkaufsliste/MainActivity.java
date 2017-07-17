@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Toast.makeText(this, editText.getText(), Toast.LENGTH_LONG).show();
         textView.setText(string);
+
+        // Lukas, läuft bei dir !!!
     }
 }
 
