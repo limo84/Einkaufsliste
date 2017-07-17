@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(string);
 
         // Lukas, läuft bei dir !!!
-        // Na auf jeden !!!
-        // Na dann schreib auch mal besseren Code
+        // Funktioniert das jetzt auch?
     }
 }
 
