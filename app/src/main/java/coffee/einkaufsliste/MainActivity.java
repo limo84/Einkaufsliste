@@ -21,59 +21,21 @@ public class MainActivity extends AppCompatActivity {
     EditText numberOfItems;
     EditText editText;
 
-    public class ListEntry
-    {
-        private Short number;
-        private String item;
+    public class Node {
+        public int wert;
+        public Node next;
 
-        private ListEntry next;
-
-        public ListEntry(Short number, String item)
-        {
-            this.number = number;
-            this.item = item;
+        public Node(int wert) {
+            this.wert = wert;
         }
 
-        public String getItem()
-        {
-            return item;
-        }
-
-        public Short getNumber()
-        {
-            return number;
-        }
-
-        public ListEntry getNext()
-        {
-            return next;
-        }
-
-        public void setNext(ListEntry next)
-        {
-            this.next = next;
-        }
-    }
-
-    public class ListOfEntrys
-    {
-        // First Entry in the ListOfEntrys
-        private ListEntry start;
-
-        // Length of the hole ListOfEntrys
-        private int length;
-
-        public void add (Short number, String item)
-        {
-            ListEntry pos = new ListEntry(number, item);
-            pos.setNext(start);
-            start = pos;
-            length++;
-        }
-
-        public int getLength()
-        {
-            return length;
+        public void add(int wert) {
+            if(this.next == null) {
+                this.next = new Node(wert);
+            }
+            else {
+                this.next.add(wert);
+            }
         }
     }
 
@@ -90,15 +52,28 @@ public class MainActivity extends AppCompatActivity {
 
         numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
         editText = (EditText) findViewById(R.id.editText);
+
+
+        // create new Entry
+        //Entry entry = new Entry(Integer.parseInt(numberOfItems.getText().toString()),
+         //       editText.getText().toString());
+
+        // Get params:
+        LinearLayout.LayoutParams loparams = (LinearLayout.LayoutParams) v.getLayoutParams();
+        loparams.width = 0;
+        loparams.weight = 3;
         linearLayoutEntry = new LinearLayout(this);
 
 
         TextView fred = new TextView(this);
+        fred.setLayoutParams(loparams);
         fred.setTextSize(30);
-        fred.setText(numberOfItems.getText());
+        //fred.setText(Integer.toString(entry.getNumber()));
         fred.setBackgroundColor(Color.RED);
 
+        loparams.weight = 7;
         TextView frud = new TextView(this);
+        frud.setLayoutParams(loparams);
         frud.setTextSize(30);
         frud.setText(editText.getText());
         frud.setBackgroundColor(Color.BLUE);
