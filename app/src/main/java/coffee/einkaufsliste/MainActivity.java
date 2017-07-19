@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
             this.item = item;
         }
     }
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -48,32 +47,17 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         linearLayoutEntry = new LinearLayout(this);
 
-        //String string = "";
-        //string = string + numberOfItems.getText() + editText.getText();
-
 
         TextView fred = new TextView(this);
-        //fred.setHeight(100);
-        //fred.setWidth(0);
-        //fred.setGravity(3);
         fred.setTextSize(30);
         fred.setText(numberOfItems.getText());
         fred.setBackgroundColor(Color.RED);
 
         TextView frud = new TextView(this);
-        //frud.setWidth(0);
-        //frud.setGravity(7);
         frud.setTextSize(30);
         frud.setText(editText.getText());
         frud.setBackgroundColor(Color.BLUE);
-        //fred.setLayoutParams(new LinearLayout.LayoutParams
-        //        (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        //fred.setBackgroundColor(Color.RED);
-        //fred.setBackgroundResource();
-        //fred.setImageDrawable(getResources().getDrawable(R.drawable.circle_image_selected));
-        //android:background="@android:drawable/editbox_dropdown_light_frame"
 
-        //fred.setText(string);
 
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
