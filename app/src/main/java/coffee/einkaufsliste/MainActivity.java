@@ -19,6 +19,7 @@ import android.widget.TextView;
 // blalaa
 // Hardcore Schlampen braucht das Land
 // FICKEN
+// Hardcore
 // Schlag mich hart und gebe mir Tiernamen!!!
 
 public class MainActivity extends AppCompatActivity {
