@@ -37,7 +37,17 @@ public class MainActivity extends AppCompatActivity {
                 this.next.add(wert);
             }
         }
+
+        public String printList() {
+            if(this.next != null) {
+                return Integer.toString(this.next.wert) + this.next.printList();
+            }
+
+            return "";
+        }
     }
+
+    Node node = new Node(0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
 
 
+
         // create new Entry
         //Entry entry = new Entry(Integer.parseInt(numberOfItems.getText().toString()),
          //       editText.getText().toString());
@@ -67,20 +78,30 @@ public class MainActivity extends AppCompatActivity {
 
         TextView fred = new TextView(this);
         fred.setLayoutParams(loparams);
-        fred.setTextSize(30);
-        //fred.setText(Integer.toString(entry.getNumber()));
+        fred.setTextSize(15);
+        node.add(Integer.parseInt(numberOfItems.getText().toString()));
+        fred.setText(numberOfItems.getText());
         fred.setBackgroundColor(Color.RED);
+
+        linearLayoutUpperPart.addView(linearLayoutEntry);
+        linearLayoutEntry.addView(fred);
 
         loparams.weight = 7;
         TextView frud = new TextView(this);
         frud.setLayoutParams(loparams);
-        frud.setTextSize(30);
-        frud.setText(editText.getText());
+        frud.setTextSize(15);
+        frud.setText(node.printList());
         frud.setBackgroundColor(Color.BLUE);
 
+        /*loparams.weight = 7;
+        TextView frud = new TextView(this);
+        frud.setLayoutParams(loparams);
+        frud.setTextSize(30);
+        frud.setText(editText.getText());
+        frud.setBackgroundColor(Color.BLUE);*/
 
-        linearLayoutUpperPart.addView(linearLayoutEntry);
-        linearLayoutEntry.addView(fred);
+
+
         linearLayoutEntry.addView(frud);
     }
 }
