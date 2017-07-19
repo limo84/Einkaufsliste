@@ -18,6 +18,7 @@ import android.widget.TextView;
 // blubb
 // blalaa
 // Hardcore Schlampen braucht das Land
+// FICKEN
 
 public class MainActivity extends AppCompatActivity {
 
