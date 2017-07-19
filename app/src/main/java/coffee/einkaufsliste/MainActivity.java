@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
 
+        ////trolololololololololo
+
     }
 }
 
