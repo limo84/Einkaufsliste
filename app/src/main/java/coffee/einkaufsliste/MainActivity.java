@@ -13,15 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.TextView;
 
-// DICKE SCHWAENZE BRAUCHT DAS LAND
-// blalaaa
-// blubb
-// blalaa
-// Hardcore Schlampen braucht das Land
-// FICKEN
-// Hardcore
-// Schlag mich hart und gebe mir Tiernamen!!!
-
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayoutUpperPart;
@@ -71,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
-
-        ////trolololololololololo
-
     }
 }
 
