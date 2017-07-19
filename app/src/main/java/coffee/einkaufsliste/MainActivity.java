@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.TextView;
 
+// Test Titten Möpse
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayoutUpperPart;
