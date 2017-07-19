@@ -21,14 +21,59 @@ public class MainActivity extends AppCompatActivity {
     EditText numberOfItems;
     EditText editText;
 
-    class Entry {
+    public class ListEntry
+    {
+        private Short number;
+        private String item;
 
-        public String number;
-        public String item;
+        private ListEntry next;
 
-        public Entry(String number, String item) {
+        public ListEntry(Short number, String item)
+        {
             this.number = number;
             this.item = item;
+        }
+
+        public String getItem()
+        {
+            return item;
+        }
+
+        public Short getNumber()
+        {
+            return number;
+        }
+
+        public ListEntry getNext()
+        {
+            return next;
+        }
+
+        public void setNext(ListEntry next)
+        {
+            this.next = next;
+        }
+    }
+
+    public class ListOfEntrys
+    {
+        // First Entry in the ListOfEntrys
+        private ListEntry start;
+
+        // Length of the hole ListOfEntrys
+        private int length;
+
+        public void add (Short number, String item)
+        {
+            ListEntry pos = new ListEntry(number, item);
+            pos.setNext(start);
+            start = pos;
+            length++;
+        }
+
+        public int getLength()
+        {
+            return length;
         }
     }
 
