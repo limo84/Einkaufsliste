@@ -16,6 +16,8 @@ import android.widget.TextView;
 // DICKE SCHWAENZE BRAUCHT DAS LAND
 // blalaaa
 // blubb
+// blalaa
+// Hardcore Schlampen braucht das Land
 
 public class MainActivity extends AppCompatActivity {
 
