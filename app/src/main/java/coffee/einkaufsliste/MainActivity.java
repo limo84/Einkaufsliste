@@ -13,11 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.TextView;
 
-// Test Titten Möpse Dödel Fetter Schwanz
-// WIXXXXEEEEn
-// DICKE SCHWAENZE SIND MEIN DING
-// Darf ich dir ins Gesicht wichsen?
-// SPACKOOOO
+// DICKE SCHWAENZE BRAUCHT DAS LAND
 
 public class MainActivity extends AppCompatActivity {
 
