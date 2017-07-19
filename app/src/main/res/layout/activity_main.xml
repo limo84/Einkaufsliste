@@ -70,6 +70,7 @@
             android:layout_weight="1"
             android:onClick="onClickBtn"
             app:srcCompat="@drawable/btn_plus" />
+        // Lukas du hast ganz schön große Brüste
 
     </LinearLayout>
 
