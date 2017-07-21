@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
     public class ListEntry
     {
-        private Short number;
+        private int number;
         private String item;
+        private int id;
 
         private ListEntry next;
 
-        public ListEntry(Short number, String item)
+        public ListEntry(int number, String item)
         {
             this.number = number;
             this.item = item;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             return item;
         }
 
-        public Short getNumber()
+        public int getNumber()
         {
             return number;
         }
@@ -59,21 +60,14 @@ public class MainActivity extends AppCompatActivity {
     {
         // First Entry in the ListOfEntrys
         private ListEntry start;
-
-        // Length of the hole ListOfEntrys
-        private int length;
+        private ListEntry end;
 
         public void add (Short number, String item)
         {
             ListEntry pos = new ListEntry(number, item);
             pos.setNext(start);
             start = pos;
-            length++;
-        }
 
-        public int getLength()
-        {
-            return length;
         }
     }
 
