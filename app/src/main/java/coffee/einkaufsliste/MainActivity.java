@@ -21,82 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText numberOfItems;
     EditText editText;
 
-    public class ListEntry
-    {
-        private int number;
-        private String item;
-        private int id;
-
-        private ListEntry next;
-
-        public ListEntry(int number, String item, int id)
-        {
-            this.number = number;
-            this.item = item;
-            this.id = id;
-        }
-
-        public String getItem()
-        {
-            return item;
-        }
-
-        public int getNumber()
-        {
-            return number;
-        }
-
-        public int getId()
-        {
-            return id;
-        }
-
-        public ListEntry getNext()
-        {
-            return next;
-        }
-
-        public void setNext(ListEntry next)
-        {
-            this.next = next;
-        }
-    }
-
-    public class ListOfEntrys
-    {
-        // First Entry in the ListOfEntrys
-        private ListEntry start;
-        private ListEntry end;
-
-        public ListOfEntrys(int number, String item)
-        {
-            start = new ListEntry(number, item, 1);
-            end = start;
-        }
-
-        public void add(int number, String item)
-        {
-            int endId = end.getId()+1;
-            end.setNext(new ListEntry(number, item, endId));
-            end = end.getNext();
-        }
-
-        public String NameById (int id)
-        {
-            ListEntry currentPosition = start;
-            while(currentPosition.getId() != id)
-            {
-                if(currentPosition.getNext() != null)
-                {
-                    currentPosition = currentPosition.getNext();
-                }else return "Kein Eintrag gefunden";
-            }return currentPosition.getItem();
-        }
-    }
-
     ListOfEntrys test;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView frud = new TextView(this);
         frud.setTextSize(30);
-        frud.setText(test.NameById(3));
+        frud.setText(test.NameById(6));
         //frud.setText(editText.getText());
         frud.setBackgroundColor(Color.BLUE);
 
