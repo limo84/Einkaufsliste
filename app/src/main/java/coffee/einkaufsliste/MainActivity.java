@@ -45,9 +45,21 @@ public class MainActivity extends AppCompatActivity {
 
             return "";
         }
-    }
 
-    Node node = new Node(0);
+        public void delete(int wert) {
+            if (this.next == null) {
+                return;
+            }
+            else {
+                if(this.next.wert == wert) {
+                    this.next = this.next.next;
+                }
+                else {
+                    this.next.delete(wert);
+                }
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
 
 
-
         // create new Entry
         //Entry entry = new Entry(Integer.parseInt(numberOfItems.getText().toString()),
          //       editText.getText().toString());
@@ -78,30 +89,20 @@ public class MainActivity extends AppCompatActivity {
 
         TextView fred = new TextView(this);
         fred.setLayoutParams(loparams);
-        fred.setTextSize(15);
-        node.add(Integer.parseInt(numberOfItems.getText().toString()));
-        fred.setText(numberOfItems.getText());
+        fred.setTextSize(30);
+        //fred.setText(Integer.toString(entry.getNumber()));
         fred.setBackgroundColor(Color.RED);
-
-        linearLayoutUpperPart.addView(linearLayoutEntry);
-        linearLayoutEntry.addView(fred);
 
         loparams.weight = 7;
         TextView frud = new TextView(this);
         frud.setLayoutParams(loparams);
-        frud.setTextSize(15);
-        frud.setText(node.printList());
-        frud.setBackgroundColor(Color.BLUE);
-
-        /*loparams.weight = 7;
-        TextView frud = new TextView(this);
-        frud.setLayoutParams(loparams);
         frud.setTextSize(30);
         frud.setText(editText.getText());
-        frud.setBackgroundColor(Color.BLUE);*/
+        frud.setBackgroundColor(Color.BLUE);
 
 
-
+        linearLayoutUpperPart.addView(linearLayoutEntry);
+        linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
     }
 }
