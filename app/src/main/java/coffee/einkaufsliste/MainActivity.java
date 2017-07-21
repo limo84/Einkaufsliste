@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     ListOfEntrys Test = new ListOfEntrys (123, "Bananen");
-    
+
 
 
 
