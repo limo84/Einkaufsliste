@@ -29,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         private ListEntry next;
 
-        public ListEntry(int number, String item)
+        public ListEntry(int number, String item, int id)
         {
             this.number = number;
             this.item = item;
+            this.id = id;
         }
 
         public String getItem()
@@ -43,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         public int getNumber()
         {
             return number;
+        }
+
+        public int getId()
+        {
+            return id;
         }
 
         public ListEntry getNext()
@@ -62,14 +68,34 @@ public class MainActivity extends AppCompatActivity {
         private ListEntry start;
         private ListEntry end;
 
-        public void add (Short number, String item)
+        public ListOfEntrys(int number, String item)
         {
-            ListEntry pos = new ListEntry(number, item);
-            pos.setNext(start);
-            start = pos;
+            start = new ListEntry(number, item, 1);
+            end = start;
+        }
 
+        public void Add(int number, String item)
+        {
+            int endId = end.getId()+1;
+            end.setNext(new ListEntry(number, item, endId));
+            end = end.getNext();
+        }
+
+        public String NameById (int id)
+        {
+            ListEntry currentPosition = start;
+            while(currentPosition.getId() != id)
+            {
+                if(currentPosition.getNext() != null)
+                {
+                    currentPosition = currentPosition.getNext();
+                }else return "Kein Eintrag gefunden";
+            }return currentPosition.getItem();
         }
     }
+
+    ListOfEntrys test = new ListOfEntrys (123, "Bananen");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
