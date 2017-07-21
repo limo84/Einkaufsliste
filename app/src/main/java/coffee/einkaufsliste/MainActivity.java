@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    ListOfEntrys test = new ListOfEntrys (123, "Bananen");
+    ListOfEntrys Test = new ListOfEntrys (123, "Bananen");
+    
+
 
 
     @Override
