@@ -34,4 +34,24 @@ public class ListOfEntrys
             }else return "Kein Eintrag gefunden";
         }return currentPosition.getItem();
     }
+
+    public void delete (int id)
+    {
+        ListEntry entryBefore = start;
+        ListEntry currentPosition = start;
+
+        if(id == start.getId())
+        {
+            start.getNext().setNext(start);
+        }else
+        {
+            while (currentPosition.getId() != id)
+            {
+                entryBefore = currentPosition;
+                currentPosition = currentPosition.getNext();
+                if (currentPosition == null) return;
+            }
+            entryBefore.setNext(currentPosition.getNext());
+        }
+    }
 }
