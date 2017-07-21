@@ -9,7 +9,6 @@ public class ListEntry
     private int number;
     private String item;
     private int id;
-
     private ListEntry next;
 
     public ListEntry(int number, String item, int id)
@@ -32,6 +31,11 @@ public class ListEntry
     public int getId()
     {
         return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
     public ListEntry getNext()
