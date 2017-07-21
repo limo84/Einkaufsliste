@@ -31,39 +31,42 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
         test =  new ListOfEntrys (123, "Bananen");
-        test.add(1,"string");
-        test.add(3,"Pflaumen");
-        test.add(1,"string");
-        test.add(3,"Pflaumen");
     }
 
     public void onClickBtn(View v) {
 
         numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
         editText = (EditText) findViewById(R.id.editText);
+
         linearLayoutEntry = new LinearLayout(this);
-
-
+        test.add(Integer.parseInt(numberOfItems.getText().toString()), editText.getText().toString());
         TextView fred = new TextView(this);
         fred.setTextSize(30);
-        fred.setText(numberOfItems.getText());
+        fred.setText(numberOfItems.getText().toString());
         fred.setBackgroundColor(Color.RED);
 
         TextView frud = new TextView(this);
         frud.setTextSize(30);
-        frud.setText(test.NameById(3));
+        frud.setText(editText.getText().toString());
         //frud.setText(editText.getText());
         frud.setBackgroundColor(Color.BLUE);
-        test.delete(3);
-
-
-
 
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
+    }
 
+    public void onClickBtn_delete(View v) {
+        linearLayoutEntry = new LinearLayout(this);
+        while (test.NameById())
+        TextView fred = new TextView(this);
+        fred.setTextSize(30);
+        fred.setText(editText.getText().toString());
+        //frud.setText(editText.getText());
+        fred.setBackgroundColor(Color.BLUE);
 
+        linearLayoutUpperPart.addView(linearLayoutEntry);
+        linearLayoutEntry.addView(fred);
     }
 }
 

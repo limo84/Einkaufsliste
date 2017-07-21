@@ -35,6 +35,18 @@ public class ListOfEntrys
         }return currentPosition.getItem();
     }
 
+    public String names() {
+        if (start.getNext().equals("")) {
+            return "";
+        }
+        else {
+            ListEntry currentPosition = start.getNext();
+            while (currentPosition != null) {
+                
+            }
+        }
+    }
+
     public void delete (int id)
     {
         ListEntry entryBefore = start;
@@ -42,7 +54,7 @@ public class ListOfEntrys
 
         if(id == start.getId())
         {
-            start.getNext().setNext(start);
+            start = start.getNext();
         }else
         {
             while (currentPosition.getId() != id)
