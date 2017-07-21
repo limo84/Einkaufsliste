@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             end = start;
         }
 
-        public void Add(int number, String item)
+        public void add(int number, String item)
         {
             int endId = end.getId()+1;
             end.setNext(new ListEntry(number, item, endId));
@@ -129,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
+
+        Test.add(1,"string");
     }
 }
 
