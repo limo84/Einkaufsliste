@@ -94,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    ListOfEntrys Test = new ListOfEntrys (123, "Bananen");
-
+    ListOfEntrys test;
 
 
 
@@ -106,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
+        test =  new ListOfEntrys (123, "Bananen");
     }
 
     public void onClickBtn(View v) {
@@ -114,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         linearLayoutEntry = new LinearLayout(this);
 
+        test.add(1,"string");
+        test.add(3,"Pflaumen");
 
         TextView fred = new TextView(this);
         fred.setTextSize(30);
@@ -122,15 +124,18 @@ public class MainActivity extends AppCompatActivity {
 
         TextView frud = new TextView(this);
         frud.setTextSize(30);
-        frud.setText(editText.getText());
+        frud.setText(test.NameById(3));
+        //frud.setText(editText.getText());
         frud.setBackgroundColor(Color.BLUE);
+
+
 
 
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);
 
-        Test.add(1,"string");
+
     }
 }
 
