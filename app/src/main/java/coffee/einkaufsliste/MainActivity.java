@@ -1,5 +1,6 @@
 package coffee.einkaufsliste;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,45 +22,72 @@ public class MainActivity extends AppCompatActivity {
     EditText numberOfItems;
     EditText editText;
 
+
     public class Node {
-        public int wert;
+        public int id;
+        public String item;
         public Node next;
 
-        public Node(int wert) {
-            this.wert = wert;
+        public Node(String item) {
+            this.id = 0;
+            this.item = item;
         }
 
-        public void add(int wert) {
+        public void add(String item) {
             if(this.next == null) {
-                this.next = new Node(wert);
+                this.next = new Node(item);
+                this.next.id = this.id + 1;
             }
             else {
-                this.next.add(wert);
+                this.next.add(item);
             }
         }
 
         public String printList() {
             if(this.next != null) {
-                return Integer.toString(this.next.wert) + this.next.printList();
+                return Integer.toString(this.next.id) + this.next.printList();
             }
 
             return "";
         }
 
-        public void delete(int wert) {
+        public void printList2(Context context) {
+            if(this.next != null) {
+                linearLayoutEntry = new LinearLayout(context);
+
+                TextView tf_id = new TextView(context);
+                tf_id.setTextSize(30);
+                tf_id.setText(Integer.toString(this.next.id));
+                //tf_id.setBackgroundColor(Color.RED);
+
+                TextView tf_item = new TextView(context);
+                tf_item.setTextSize(30);
+                tf_item.setText(this.next.item);
+
+                linearLayoutUpperPart.addView(linearLayoutEntry);
+                linearLayoutEntry.addView(tf_id);
+                linearLayoutEntry.addView(tf_item);
+
+                this.next.printList2(context);
+            }
+        }
+
+        public void delete(int id) {
             if (this.next == null) {
                 return;
             }
             else {
-                if(this.next.wert == wert) {
+                if(this.next.id == id) {
                     this.next = this.next.next;
                 }
                 else {
-                    this.next.delete(wert);
+                    this.next.delete(id);
                 }
             }
         }
     }
+
+    Node node;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
+        node = new Node("");
+        for (int i=1; i<6; i++)
+            node.add("Pflaume");
     }
 
     public void onClickBtn(View v) {
@@ -75,13 +106,24 @@ public class MainActivity extends AppCompatActivity {
         numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
         editText = (EditText) findViewById(R.id.editText);
 
+        node.printList2(this);
+        /*linearLayoutEntry = new LinearLayout(this);
+
+        node.add();
+        TextView fred = new TextView(this);
+        fred.setTextSize(30);
+        fred.setText(node.printList());
+        fred.setBackgroundColor(Color.RED);
+
+        linearLayoutUpperPart.addView(linearLayoutEntry);
+        linearLayoutEntry.addView(fred);
 
         // create new Entry
         //Entry entry = new Entry(Integer.parseInt(numberOfItems.getText().toString()),
          //       editText.getText().toString());
 
         // Get params:
-        LinearLayout.LayoutParams loparams = (LinearLayout.LayoutParams) v.getLayoutParams();
+        /*LinearLayout.LayoutParams loparams = (LinearLayout.LayoutParams) v.getLayoutParams();
         loparams.width = 0;
         loparams.weight = 3;
         linearLayoutEntry = new LinearLayout(this);
@@ -103,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
-        linearLayoutEntry.addView(frud);
+        linearLayoutEntry.addView(frud);*/
     }
 }
 
