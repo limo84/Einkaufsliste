@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public class Node {
         public int id;
         public String item;
+        public CheckBox checkBox;
         public Node next;
 
         public Node(String item) {
@@ -33,13 +35,14 @@ public class MainActivity extends AppCompatActivity {
             this.item = item;
         }
 
-        public void add(String item) {
+        public void add(String item, Context context) {
             if(this.next == null) {
                 this.next = new Node(item);
                 this.next.id = this.id + 1;
+                this.checkBox = new CheckBox(context);
             }
             else {
-                this.next.add(item);
+                this.next.add(item, context);
             }
         }
 
@@ -55,10 +58,11 @@ public class MainActivity extends AppCompatActivity {
             if(this.next != null) {
                 linearLayoutEntry = new LinearLayout(context);
 
+
                 TextView tf_id = new TextView(context);
                 tf_id.setTextSize(30);
                 tf_id.setText(Integer.toString(this.next.id));
-                //tf_id.setBackgroundColor(Color.RED);
+
 
                 TextView tf_item = new TextView(context);
                 tf_item.setTextSize(30);
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 linearLayoutUpperPart.addView(linearLayoutEntry);
                 linearLayoutEntry.addView(tf_id);
                 linearLayoutEntry.addView(tf_item);
+                //linearLayoutEntry.addView(this.checkBox);
 
                 this.next.printList2(context);
             }
@@ -114,15 +119,18 @@ public class MainActivity extends AppCompatActivity {
         numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
         editText = (EditText) findViewById(R.id.editText);
 
-        node.add(editText.getText().toString());
+        node.add(editText.getText().toString(), this);
         linearLayoutEntry = new LinearLayout(this);
 
         TextView fred = new TextView(this);
         fred.setTextSize(30);
         fred.setText(editText.getText().toString());
 
+        CheckBox check = new CheckBox(this);
+
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
+        linearLayoutEntry.addView(check);
 
         /*linearLayoutEntry = new LinearLayout(this);
 
@@ -167,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void fct_refreshList(View v) {
         linearLayoutUpperPart.removeAllViews();
+        node.delete(3);
         node.refreshId();
         node.printList2(this);
     }
