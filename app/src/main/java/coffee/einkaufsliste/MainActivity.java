@@ -72,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        public void refreshId() {
+            if (this.next != null) {
+                this.next.id = this.id + 1;
+                this.next.refreshId();
+            }
+        }
+
         public void delete(int id) {
             if (this.next == null) {
                 return;
@@ -97,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
         node = new Node("");
-        for (int i=1; i<6; i++)
-            node.add("Pflaume");
+        //for (int i=1; i<6; i++)
+        //    node.add("Pflaume");
+        //node.delete(3);
     }
 
     public void onClickBtn(View v) {
@@ -106,7 +114,16 @@ public class MainActivity extends AppCompatActivity {
         numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
         editText = (EditText) findViewById(R.id.editText);
 
-        node.printList2(this);
+        node.add(editText.getText().toString());
+        linearLayoutEntry = new LinearLayout(this);
+
+        TextView fred = new TextView(this);
+        fred.setTextSize(30);
+        fred.setText(editText.getText().toString());
+
+        linearLayoutUpperPart.addView(linearLayoutEntry);
+        linearLayoutEntry.addView(fred);
+
         /*linearLayoutEntry = new LinearLayout(this);
 
         node.add();
@@ -146,6 +163,12 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(frud);*/
+    }
+
+    public void fct_refreshList(View v) {
+        linearLayoutUpperPart.removeAllViews();
+        node.refreshId();
+        node.printList2(this);
     }
 }
 
