@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.TextView;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
 
     ListOfEntrys test;
+
+    ArrayList test2 = new ArrayList();
+
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
