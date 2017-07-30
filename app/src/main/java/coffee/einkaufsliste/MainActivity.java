@@ -109,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
         node = new Node("");
-        //for (int i=1; i<6; i++)
-        //    node.add("Pflaume");
-        //node.delete(3);
     }
 
     public void onClickBtn(View v) {
@@ -132,45 +129,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(check);
 
-        /*linearLayoutEntry = new LinearLayout(this);
-
-        node.add();
-        TextView fred = new TextView(this);
-        fred.setTextSize(30);
-        fred.setText(node.printList());
-        fred.setBackgroundColor(Color.RED);
-
-        linearLayoutUpperPart.addView(linearLayoutEntry);
-        linearLayoutEntry.addView(fred);
-
-        // create new Entry
-        //Entry entry = new Entry(Integer.parseInt(numberOfItems.getText().toString()),
-         //       editText.getText().toString());
-
-        // Get params:
-        /*LinearLayout.LayoutParams loparams = (LinearLayout.LayoutParams) v.getLayoutParams();
-        loparams.width = 0;
-        loparams.weight = 3;
-        linearLayoutEntry = new LinearLayout(this);
-
-
-        TextView fred = new TextView(this);
-        fred.setLayoutParams(loparams);
-        fred.setTextSize(30);
-        //fred.setText(Integer.toString(entry.getNumber()));
-        fred.setBackgroundColor(Color.RED);
-
-        loparams.weight = 7;
-        TextView frud = new TextView(this);
-        frud.setLayoutParams(loparams);
-        frud.setTextSize(30);
-        frud.setText(editText.getText());
-        frud.setBackgroundColor(Color.BLUE);
-
-
-        linearLayoutUpperPart.addView(linearLayoutEntry);
-        linearLayoutEntry.addView(fred);
-        linearLayoutEntry.addView(frud);*/
     }
 
     public void fct_refreshList(View v) {
