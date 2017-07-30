@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             if(this.next != null) {
                 return Integer.toString(this.next.id) + this.next.printList();
             }
-
             return "";
         }
 
@@ -58,11 +57,9 @@ public class MainActivity extends AppCompatActivity {
             if(this.next != null) {
                 linearLayoutEntry = new LinearLayout(context);
 
-
                 TextView tf_id = new TextView(context);
                 tf_id.setTextSize(30);
                 tf_id.setText(Integer.toString(this.next.id));
-
 
                 TextView tf_item = new TextView(context);
                 tf_item.setTextSize(30);
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 linearLayoutUpperPart.addView(linearLayoutEntry);
                 linearLayoutEntry.addView(tf_id);
                 linearLayoutEntry.addView(tf_item);
-                //linearLayoutEntry.addView(this.checkBox);
+                linearLayoutEntry.addView(this.checkBox);
 
                 this.next.printList2(context);
             }
@@ -128,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(check);
-
     }
 
     public void fct_refreshList(View v) {
