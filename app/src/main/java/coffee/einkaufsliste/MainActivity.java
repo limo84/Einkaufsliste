@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
         linearLayoutEntry.addView(check);
+
+        // kleiner Test
     }
 
     public void fct_refreshList(View v) {
