@@ -61,23 +61,21 @@
             android:singleLine="true"
             android:visibility="visible" />
 
-        <ImageButton
+        <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:onClick="onClickBtn"
-            app:srcCompat="@drawable/btn_plus" />
+            android:text="ADD" />
 
         <Button
             android:id="@+id/btn_refreshList"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:text="R"
-            android:onClick="fct_refreshList"/>
+            android:onClick="EingabeAnzeigen"
+            android:text="Show" />
     </LinearLayout>
 
 </LinearLayout>

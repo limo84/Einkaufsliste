@@ -18,90 +18,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<ListElement> ListenSpeicher;
     LinearLayout linearLayoutUpperPart;
-    LinearLayout linearLayoutEntry;
-
-    EditText numberOfItems;
-    EditText editText;
-
-    ArrayList<ListElement> test = new ArrayList<ListElement>();
-
-
-
-
-    public class Node {
-        public int id;
-        public String item;
-        public CheckBox checkBox;
-        public Node next;
-
-        public Node(String item) {
-            this.id = 0;
-            this.item = item;
-        }
-
-        public void add(String item, Context context) {
-            if(this.next == null) {
-                this.next = new Node(item);
-                this.next.id = this.id + 1;
-                this.checkBox = new CheckBox(context);
-            }
-            else {
-                this.next.add(item, context);
-            }
-        }
-
-        public String printList() {
-            if(this.next != null) {
-                return Integer.toString(this.next.id) + this.next.printList();
-            }
-            return "";
-        }
-
-        public void printList2(Context context) {
-            if(this.next != null) {
-                linearLayoutEntry = new LinearLayout(context);
-
-                TextView tf_id = new TextView(context);
-                tf_id.setTextSize(30);
-                tf_id.setText(Integer.toString(this.next.id));
-
-                TextView tf_item = new TextView(context);
-                tf_item.setTextSize(30);
-                tf_item.setText(this.next.item);
-
-                linearLayoutUpperPart.addView(linearLayoutEntry);
-                linearLayoutEntry.addView(tf_id);
-                linearLayoutEntry.addView(tf_item);
-                linearLayoutEntry.addView(this.checkBox);
-
-                this.next.printList2(context);
-            }
-        }
-
-        public void refreshId() {
-            if (this.next != null) {
-                this.next.id = this.id + 1;
-                this.next.refreshId();
-            }
-        }
-
-        public void delete(int id) {
-            if (this.next == null) {
-                return;
-            }
-            else {
-                if(this.next.id == id) {
-                    this.next = this.next.next;
-                }
-                else {
-                    this.next.delete(id);
-                }
-            }
-        }
-    }
-
-    Node node;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,47 +27,52 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ListenSpeicher = new ArrayList<ListElement>(0);
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
-        node = new Node("");
 
         ListElement FirstEntry = new ListElement(3, "Bohnen");
         ListElement SecondEntry = new ListElement(4, "Gurken");
         ListElement ThirtEntry = new ListElement (7, "Bananen");
 
-        test.add(FirstEntry);
-        test.add(SecondEntry);
-        test.add(ThirtEntry);
+        ListenSpeicher.add(FirstEntry);
+        ListenSpeicher.add(SecondEntry);
+        ListenSpeicher.add(ThirtEntry);
     }
 
     public void onClickBtn(View v) {
 
-//        numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
-//        editText = (EditText) findViewById(R.id.editText);
-//
-//        node.add(editText.getText().toString(), this);
-        linearLayoutEntry = new LinearLayout(this);
-//
-        TextView fred = new TextView(this);
-        fred.setTextSize(30);
-        fred.setText(test.get(1).GetArtikel());
-//        fred.setText(editText.getText().toString());
-//
-//        CheckBox check = new CheckBox(this);
-//
-        linearLayoutUpperPart.addView(linearLayoutEntry);
-        linearLayoutEntry.addView(fred);
-//        linearLayoutEntry.addView(check);
+        EditText numberOfItem = (EditText) findViewById(R.id.editTextItemNumber);
+        EditText nameOfItem = (EditText) findViewById(R.id.editText);
 
-
-
+        ListElement neuesElement = new ListElement(Integer.parseInt(numberOfItem.getText().toString()), nameOfItem.getText().toString());
+        ListenSpeicher.add(neuesElement);
 
     }
 
-    public void fct_refreshList(View v) {
-        linearLayoutUpperPart.removeAllViews();
-        node.delete(3);
-        node.refreshId();
-        node.printList2(this);
+    public void EingabeAnzeigen(View v) {
+
+        for (int i = 0; i<= (ListenSpeicher.size()-1); i++){
+            LinearLayout linearLayoutEntry = new LinearLayout(this);
+
+            TextView Zahl = new TextView(this);
+            Zahl.setTextSize(30);
+            Zahl.setText(String.valueOf(ListenSpeicher.get(i).GetAnzahl()));
+
+
+            TextView Leerzeile = new TextView(this);
+            Leerzeile.setTextSize(30);
+            Leerzeile.setText(" ");
+
+            TextView Artikel = new TextView(this);
+            Artikel.setTextSize(30);
+            Artikel.setText(ListenSpeicher.get(i).GetArtikel());
+
+            linearLayoutUpperPart.addView(linearLayoutEntry);
+            linearLayoutEntry.addView(Zahl);
+            linearLayoutEntry.addView(Leerzeile);
+            linearLayoutEntry.addView(Artikel);
+
+        }
     }
 }
 
