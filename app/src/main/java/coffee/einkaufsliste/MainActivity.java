@@ -30,13 +30,17 @@ public class MainActivity extends AppCompatActivity {
         ListenSpeicher = new ArrayList<ListElement>(0);
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
 
-        ListElement FirstEntry = new ListElement(3, "Bohnen");
-        ListElement SecondEntry = new ListElement(4, "Gurken");
-        ListElement ThirtEntry = new ListElement (7, "Bananen");
+        // Es muss den ListenSpeicher vorher geben
 
-        ListenSpeicher.add(FirstEntry);
-        ListenSpeicher.add(SecondEntry);
-        ListenSpeicher.add(ThirtEntry);
+        //ListElement FirstEntry = new ListElement(3, "Bohnen");
+        //ListElement SecondEntry = new ListElement(4, "Gurken");
+        //ListElement ThirtEntry = new ListElement (7, "Bananen");
+
+        //ListenSpeicher.add(FirstEntry);
+        //ListenSpeicher.add(SecondEntry);
+        //ListenSpeicher.add(ThirtEntry);
+
+        //EingabeAnzeigen(null);
     }
 
     public void onClickBtn(View v) {
@@ -44,20 +48,28 @@ public class MainActivity extends AppCompatActivity {
         EditText numberOfItem = (EditText) findViewById(R.id.editTextItemNumber);
         EditText nameOfItem = (EditText) findViewById(R.id.editText);
 
-        ListElement neuesElement = new ListElement(Integer.parseInt(numberOfItem.getText().toString()), nameOfItem.getText().toString());
-        ListenSpeicher.add(neuesElement);
+        if(!numberOfItem.getText().toString().isEmpty() && !nameOfItem.getText().toString().isEmpty()) {
+            ListElement neuesElement = new ListElement(Integer.parseInt(numberOfItem.getText().toString()), nameOfItem.getText().toString());
+            ListenSpeicher.add(neuesElement);
+        }
+
+        EingabeAnzeigen(null);
 
     }
 
     public void EingabeAnzeigen(View v) {
+        // ListenSpeicher.size() != 0
+
+        linearLayoutUpperPart.removeAllViews();
 
         for (int i = 0; i<= (ListenSpeicher.size()-1); i++){
+
             LinearLayout linearLayoutEntry = new LinearLayout(this);
 
             TextView Zahl = new TextView(this);
             Zahl.setTextSize(30);
             Zahl.setText(String.valueOf(ListenSpeicher.get(i).GetAnzahl()));
-
+            //Zahl.setText(String.valueOf(ListenSpeicher.size()));
 
             TextView Leerzeile = new TextView(this);
             Leerzeile.setTextSize(30);
@@ -73,6 +85,6 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutEntry.addView(Artikel);
 
         }
+
     }
 }
-
