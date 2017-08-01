@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     EditText numberOfItems;
     EditText editText;
+
+    ArrayList<ListElement> test = new ArrayList<ListElement>();
+
+
 
 
     public class Node {
@@ -106,25 +111,38 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
         node = new Node("");
+
+        ListElement FirstEntry = new ListElement(3, "Bohnen");
+        ListElement SecondEntry = new ListElement(4, "Gurken");
+        ListElement ThirtEntry = new ListElement (7, "Bananen");
+
+        test.add(FirstEntry);
+        test.add(SecondEntry);
+        test.add(ThirtEntry);
     }
 
     public void onClickBtn(View v) {
 
-        numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
-        editText = (EditText) findViewById(R.id.editText);
-
-        node.add(editText.getText().toString(), this);
+//        numberOfItems = (EditText) findViewById(R.id.editTextItemNumber);
+//        editText = (EditText) findViewById(R.id.editText);
+//
+//        node.add(editText.getText().toString(), this);
         linearLayoutEntry = new LinearLayout(this);
-
+//
         TextView fred = new TextView(this);
         fred.setTextSize(30);
-        fred.setText(editText.getText().toString());
-
-        CheckBox check = new CheckBox(this);
-
+        fred.setText(test.get(1).GetArtikel());
+//        fred.setText(editText.getText().toString());
+//
+//        CheckBox check = new CheckBox(this);
+//
         linearLayoutUpperPart.addView(linearLayoutEntry);
         linearLayoutEntry.addView(fred);
-        linearLayoutEntry.addView(check);
+//        linearLayoutEntry.addView(check);
+
+
+
+
     }
 
     public void fct_refreshList(View v) {
