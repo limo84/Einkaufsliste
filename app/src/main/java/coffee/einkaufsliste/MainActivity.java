@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListenSpeicher = new ArrayList<ListElement>(0);
+        ListenSpeicher = new ArrayList<>(0);
         linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);
 
         // Es muss den ListenSpeicher vorher geben

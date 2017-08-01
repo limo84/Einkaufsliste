@@ -2,6 +2,7 @@ package coffee.einkaufsliste;
 
 /**
  * Created by Tribe on 01.08.2017.
+ * Klasse für die Einträge
  */
 
 public class ListElement {
