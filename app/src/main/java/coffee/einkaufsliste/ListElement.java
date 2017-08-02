@@ -17,7 +17,6 @@ public class ListElement {
         this.Anzahl = Anzahl;
         this.Artikel = Artikel;
         this.Remove = Remove;
-
     }
 
     public String GetArtikel() {

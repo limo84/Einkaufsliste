@@ -61,12 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        EingabeAnzeigen(null);
+        //EingabeAnzeigen(v);
 
     }
 
     public void EingabeAnzeigen(View v) {
-        // ListenSpeicher.size() != 0
 
         linearLayoutUpperPart.removeAllViews();
 
@@ -87,11 +86,12 @@ public class MainActivity extends AppCompatActivity {
             Artikel.setTextSize(30);
             Artikel.setText(ListenSpeicher.get(i).GetArtikel());
 
-            linearLayoutUpperPart.addView(linearLayoutEntry);
             linearLayoutEntry.addView(Zahl);
             linearLayoutEntry.addView(Leerzeile);
             linearLayoutEntry.addView(Artikel);
             linearLayoutEntry.addView(ListenSpeicher.get(i).GetButton());
+
+            linearLayoutUpperPart.addView(linearLayoutEntry);
 
         }
 
