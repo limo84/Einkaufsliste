@@ -49,8 +49,16 @@ public class MainActivity extends AppCompatActivity {
         EditText nameOfItem = (EditText) findViewById(R.id.editText);
 
         if(!numberOfItem.getText().toString().isEmpty() && !nameOfItem.getText().toString().isEmpty()) {
-            ListElement neuesElement = new ListElement(Integer.parseInt(numberOfItem.getText().toString()), nameOfItem.getText().toString());
+
+            Button Remove = new Button(this);
+            Remove.setTextSize(20);
+            Remove.setText("R");
+
+            ListElement neuesElement = new ListElement(Integer.parseInt(numberOfItem.getText().toString()), nameOfItem.getText().toString(), Remove);
             ListenSpeicher.add(neuesElement);
+
+            // ListenSpeicher.indexOf(neuesElement);
+
         }
 
         EingabeAnzeigen(null);
@@ -83,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutEntry.addView(Zahl);
             linearLayoutEntry.addView(Leerzeile);
             linearLayoutEntry.addView(Artikel);
+            linearLayoutEntry.addView(ListenSpeicher.get(i).GetButton());
 
         }
 
