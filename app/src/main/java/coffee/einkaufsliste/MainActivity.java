@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutEntry.addView(ListenSpeicher.get(i).GetButton());
 
             linearLayoutUpperPart.addView(linearLayoutEntry);
+            //Test
 
         }
 
