@@ -18,27 +18,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<ListElement> ListenSpeicher;
-    LinearLayout linearLayoutUpperPart = (LinearLayout) findViewById(R.id.itemListLayout);;
+    LinearLayout Anzeige;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ListenSpeicher = new ArrayList<>(0);
-
-
-        // Es muss den ListenSpeicher vorher geben
-
-        //ListElement FirstEntry = new ListElement(3, "Bohnen");
-        //ListElement SecondEntry = new ListElement(4, "Gurken");
-        //ListElement ThirtEntry = new ListElement (7, "Bananen");
-
-        //ListenSpeicher.add(FirstEntry);
-        //ListenSpeicher.add(SecondEntry);
-        //ListenSpeicher.add(ThirtEntry);
+        Anzeige = (LinearLayout) findViewById(R.id.itemListLayout);
 
     }
 
@@ -49,11 +37,21 @@ public class MainActivity extends AppCompatActivity {
 
         if(!numberOfItem.getText().toString().isEmpty() && !nameOfItem.getText().toString().isEmpty()) {
 
+            TextView ErsterUntereintrag = new TextView(this);
+            TextView ZweiterUntereintrag = new TextView(this);
+
+            LinearLayout Eintrag = new LinearLayout(this);
+            Eintrag.addView(ErsterUntereintrag);
+            Eintrag.addView(ZweiterUntereintrag);
+
+            Anzeige.addView(Eintrag, i);
+
+            i++;
+
         }
     }
 
-    public void EingabeAnzeigen(View v) {
+    public void Test(View v) {
 
-        }
     }
 }

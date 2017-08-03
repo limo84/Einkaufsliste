@@ -62,19 +62,19 @@
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnAdd"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_weight="1"
             android:onClick="onClickBtn"
-            android:text="ADD" />
+            android:text="Add" />
 
         <Button
-            android:id="@+id/btn_refreshList"
+            android:id="@+id/btnTest"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:onClick="EingabeAnzeigen"
+            android:onClick="Test"
             android:text="Show" />
     </LinearLayout>
 
