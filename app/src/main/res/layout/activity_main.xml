@@ -44,6 +44,7 @@
             android:layout_weight="1"
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:ems="10"
+            android:hint="Nr"
             android:inputType="number"
             android:visibility="visible" />
 
@@ -56,8 +57,9 @@
             android:layout_weight="4"
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:ems="10"
-            android:hint="Item"
-            android:inputType="textPersonName"
+            android:hint="Artikel"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
             android:singleLine="true"
             android:visibility="visible" />
 

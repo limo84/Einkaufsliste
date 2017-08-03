@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout Anzeige;
     int i = 0;
+    int j = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         if(!numberOfItem.getText().toString().isEmpty() && !nameOfItem.getText().toString().isEmpty()) {
 
             TextView ErsterUntereintrag = new TextView(this);
+            ErsterUntereintrag.setTextSize(30);
+            ErsterUntereintrag.setText(numberOfItem.getText());
+
             TextView ZweiterUntereintrag = new TextView(this);
+            ZweiterUntereintrag.setTextSize(30);
+            ZweiterUntereintrag.setText(nameOfItem.getText());
 
             LinearLayout Eintrag = new LinearLayout(this);
             Eintrag.addView(ErsterUntereintrag);
@@ -53,5 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Test(View v) {
 
+        Anzeige.removeViewAt(j);
+        j++;
     }
 }
